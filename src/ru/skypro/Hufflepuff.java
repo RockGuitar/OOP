@@ -18,18 +18,18 @@ public class Hufflepuff extends Hogwarts{
     }
 
     public static void hufflepuffComparison ( Hufflepuff studentOne, Hufflepuff studentTwo ) {
-        String[] ravenClawQualities = new String[]{"старательн", "верн", "честн"};
+        String[] hufflepuffQualities = new String[]{"старательн", "верн", "честн"};
         int[] studentOneQualities = new int[]{studentOne.diligence, studentOne.loyalty, studentOne.honesty};
         int[] studentTwoQualities = new int[]{studentTwo.diligence, studentTwo.loyalty, studentTwo.honesty};
-        for (int i = 0; i < ravenClawQualities.length; i++) {
+        for (int i = 0; i < hufflepuffQualities.length; i++) {
             boolean equalQuality = studentOneQualities[i] == studentTwoQualities[i];
             boolean diffQuality = studentOneQualities[i] > studentTwoQualities[i];
             if (equalQuality) {
-                System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " одинаково " + ravenClawQualities[i] + "ы");
+                System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " одинаково " + hufflepuffQualities[i] + "ы");
             } else if (diffQuality) {
-                System.out.println(studentOne.getStudentName() + " " + ravenClawQualities[i] + "ее, чем " + studentTwo.getStudentName());
+                System.out.println(studentOne.getStudentName() + " " + hufflepuffQualities[i] + "ее, чем " + studentTwo.getStudentName());
             } else {
-                System.out.println(studentTwo.getStudentName() + " " + ravenClawQualities[i] + "ее, чем " + studentOne.getStudentName());
+                System.out.println(studentTwo.getStudentName() + " " + hufflepuffQualities[i] + "ее, чем " + studentOne.getStudentName());
             }
         }
         System.out.println();
