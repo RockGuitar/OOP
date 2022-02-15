@@ -15,33 +15,21 @@ public class Gryffindor extends Hogwarts{
         return  "\tБлагородство: " + chivalry + "\n\tХрабрость: " + courage + "\n\tЧесть: " + honor;
     }
 
-    public static void gryffindorComparison( Gryffindor studentOne, Gryffindor studentTwo){
-        boolean equalChivalry = studentOne.chivalry == studentTwo.chivalry;
-        boolean diffChivalry = studentOne.chivalry > studentTwo.chivalry;
-        boolean equalCourage = studentOne.courage == studentTwo.courage;
-        boolean diffCourage = studentOne.courage > studentTwo.courage;
-        boolean equalHonor = studentOne.honor == studentTwo.honor;
-        boolean diffHonor = studentOne.honor > studentTwo.honor;
-        if (equalChivalry){
-            System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " одинаково благородны");
-        } else if (diffChivalry){
-            System.out.println(studentOne.getStudentName() +" благороднее, чем " + studentTwo.getStudentName());
-        } else {
-            System.out.println(studentTwo.getStudentName() +" благороднее, чем " + studentOne.getStudentName());
+    public static void gryffindorComparison(Gryffindor studentOne, Gryffindor studentTwo){
+        String[] gryffindorQualities = new String[]{"благородн", "храбр", "почётн"};
+        int[] studentOneQualities = new int[]{studentOne.chivalry, studentOne.courage, studentOne.honor};
+        int[] studentTwoQualities = new int[]{studentTwo.chivalry, studentTwo.courage, studentTwo.honor};
+        for (int i = 0; i < gryffindorQualities.length; i++) {
+            boolean equalQuality = studentOneQualities[i] == studentTwoQualities[i];
+            boolean diffQuality = studentOneQualities[i] > studentTwoQualities[i];
+            if(equalQuality){
+                System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " одинаково "+ gryffindorQualities[i]+ "ы");
+            }else if(diffQuality){
+                System.out.println(studentOne.getStudentName() +" "+gryffindorQualities[i]+ "ее, чем " + studentTwo.getStudentName());
+            } else{
+                System.out.println(studentTwo.getStudentName() +" "+gryffindorQualities[i]+ "ее, чем " + studentOne.getStudentName());
+            }
         }
-        if (equalCourage){
-            System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " одинаково храбры");
-        } else if (diffCourage){
-            System.out.println(studentOne.getStudentName() +" храбрее, чем " + studentTwo.getStudentName());
-        } else {
-            System.out.println(studentTwo.getStudentName() +" храбрее, чем " + studentOne.getStudentName());
-        }
-        if (equalHonor){
-            System.out.println(studentOne.getStudentName() + " и " + studentTwo.getStudentName() + " имеют одинаковую честь");
-        } else if (diffHonor){
-            System.out.println(studentOne.getStudentName() +" имеет больше чести, чем " + studentTwo.getStudentName());
-        } else {
-            System.out.println(studentTwo.getStudentName() +" имеет больше чести, чем " + studentOne.getStudentName());
-        }
+        System.out.println();
     }
 }
